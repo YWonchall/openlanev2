@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: openlanev2
+Version: 0.1.0
+Summary: The official devkit of the OpenLane-V2 dataset.
+Home-page: https://github.com/OpenDriveLab/OpenLane-V2
+Author: The OpenLane-V2 Dataset Authors
+Author-email: wanghuijie@pjlab.org.cn
+License: Apache License 2.0
+License-File: LICENSE
