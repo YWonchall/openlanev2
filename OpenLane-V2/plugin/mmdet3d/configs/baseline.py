@@ -146,8 +146,8 @@ test_pipeline = [
 ]
 
 dataset_type = 'OpenLaneV2SubsetADataset'
-data_root = '/home/cao/code/ywc/openlanev2/OpenLane-V2/data/OpenLane-V2'
-meta_root = '/home/cao/code/ywc/openlanev2/OpenLane-V2/data/OpenLane-V2'
+data_root = '../OpenLane-V2/data/OpenLane-V2'
+meta_root = '../OpenLane-V2/data/OpenLane-V2'
 
 data = dict(
     samples_per_gpu=1,
@@ -156,28 +156,28 @@ data = dict(
         type=dataset_type,
         data_root=data_root,
         meta_root=meta_root,
-        collection='data_dict_sample',
+        collection='data_dict_subset_A_mini_train',
         pipeline=train_pipeline,
         test_mode=False),
     val=dict(
         type=dataset_type,
         data_root=data_root,
         meta_root=meta_root,
-        collection='data_dict_sample',
+        collection='data_dict_subset_A_mini_train',
         pipeline=test_pipeline,
         test_mode=True),
     test=dict(
         type=dataset_type,
         data_root=data_root,
         meta_root=meta_root,
-        collection='data_dict_sample',
+        collection='data_dict_subset_A_mini_train',
         pipeline=test_pipeline,
         test_mode=True),
     shuffler_sampler=dict(type='DistributedGroupSampler'),
     nonshuffler_sampler=dict(type='DistributedSampler'))
 
 optimizer = dict(
-    type='SGD',
+    type='AdamW',
     lr=1e-4,
     weight_decay=1e-4)
 optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))
