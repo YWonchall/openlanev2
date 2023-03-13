@@ -184,13 +184,13 @@ optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))
 
 lr_config = dict(
     policy='CosineAnnealing',
-    warmup='linear',
+    warmup=None,
     warmup_iters=500,
     warmup_ratio=1.0 / 3,
     min_lr_ratio=1e-3)
 
-runner = dict(type='EpochBasedRunner', max_epochs=20)
-evaluation = dict(interval=1, pipeline=test_pipeline)
+runner = dict(type='EpochBasedRunner', max_epochs=6)
+evaluation = dict(interval=3, pipeline=test_pipeline)
 
 checkpoint_config = dict(interval=1, max_keep_ckpts=1)
 
@@ -205,6 +205,6 @@ log_config = dict(
 # yapf:enable
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
-load_from = None
-resume_from = None
+load_from = './work-dirs/mini/latest.pth'
+resume_from = None 
 workflow = [('train', 1)]
