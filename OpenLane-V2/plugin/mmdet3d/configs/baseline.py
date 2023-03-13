@@ -177,7 +177,7 @@ data = dict(
     nonshuffler_sampler=dict(type='DistributedSampler'))
 
 optimizer = dict(
-    type='SGD',
+    type='AdamW',
     lr=1e-4,
     weight_decay=1e-4)
 optimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))
